@@ -32,7 +32,7 @@ def winGame(arr):
                 return True
 
 
-    # manually check diags
+    # manually check diagonals
     letter = arr[1][1]
     if letter != ' ':
         if (letter == arr[0][0] and letter == arr[2][2]):
@@ -48,13 +48,13 @@ def winGame(arr):
                 print("Player 2 wins!")
             return True
     return False
+
 '''
+should print this board that displays x/o positions as well the row/col of each position
   1 2 3
 1 X X O
-2 X O X
-3 X X X
-
-
+2 O O X
+3 X O X
 '''
 def displayBoard(arr):
     print("  1 2 3")
@@ -89,6 +89,8 @@ turn = 1
 
 while winGame(arr) == False:    
     displayBoard(arr)
+
+    # X (Player 1) turn
     if turn == 1:
         print("Player 1, choose square using RC (row/column) coords (i.e. \"13\" for row 1, column 3):")
         p1_input = input()
@@ -97,6 +99,8 @@ while winGame(arr) == False:
             print("Player 1, choose square using RC (row/column) coords (i.e. \"13\" for row 1, column 3):\n")
             p1_input = input()
         updateBoard(arr, p1_input[0], p1_input[1], 'X')
+
+    # O (Player 2) turn
     elif turn == 0:
         print("Player 2, choose square using RC (row/column) coords (i.e. \"13\" for row 1, column 3):")
         p2_input = input()
